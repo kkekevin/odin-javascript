@@ -15,4 +15,34 @@
 .odin-logo {
     background-color: rgba(0,0,0,.5);
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    margin-top: 200px;
+}
+.odin-logo p {
+    font-family: NorseBold;
+    color: whitesmoke;
+    font-size: 70px;
+    padding: 10px;
+    margin: 0;
+}
+.odin-logo img {
+    height: 90px;
+    width: auto;
+}
+.shoutout {
+    position: absolute;
+    bottom: 1px;
+    margin-left: 15px;
+    color: wheat;
+}
+.shoutout a {
+    color: wheat;
+}
+
+@font-face {
+    font-family: NorseBold;
+    src: url(./font/Norse-Bold.otf);
 }
