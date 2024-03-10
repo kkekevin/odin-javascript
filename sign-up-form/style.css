@@ -4,3 +4,15 @@
     width: 90%;
     max-width: 1300px;
 }
+.image-section {
+    background-image: url("./images/halie-west-25xggax4bSA-unsplash.jpg");
+    background-repeat: no-repeat;
+    width: 600px;
+    min-width:215px;
+    height: 100vh;
+    background-size: cover;
+}
+.odin-logo {
+    background-color: rgba(0,0,0,.5);
+    display: flex;
+}
