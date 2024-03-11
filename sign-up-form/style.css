@@ -54,7 +54,7 @@ body {
 .header {
     margin-bottom: 40px;
 }
-form section div label, .warningUnmatch {
+form section div label, #warningUnmatch {
     display: block;
 }
 form section {
