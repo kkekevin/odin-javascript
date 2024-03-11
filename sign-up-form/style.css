@@ -1,3 +1,6 @@
+body {
+    margin: 0;
+}
 .container {
     display: flex;
     margin: 0 auto;
@@ -40,6 +43,28 @@
 }
 .shoutout a {
     color: wheat;
+}
+.right-side {
+    margin-left: 40px;
+    margin-top: calc(5px + 5vw);
+    margin-right: 10rem;
+}
+.header {
+    margin-bottom: 40px;
+}
+form div label {
+    display: block;
+}
+form section {
+    display: flex;
+}
+
+form {
+    margin-top: 3vw;
+}
+
+input {
+    width: 200px;
 }
 
 @font-face {
