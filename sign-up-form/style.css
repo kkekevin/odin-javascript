@@ -79,6 +79,11 @@ input {
     border-color: #E5E7EB;
     border: light;
 }
+input:focus {
+    outline: none;
+    border: 1px blue;
+    box-shadow: 0 0 10px #719ECE;
+}
 #buttonSection {
     color: #E5E7EB;
     border-radius: 10px;
