@@ -65,6 +65,8 @@ form section {
 
 form {
     margin-top: 3vw;
+    box-shadow: 1px 5px 10px 0px rgb(192, 191, 191);
+    padding-bottom: 2vw;
 }
 label {
     font-family: sans-serif;
