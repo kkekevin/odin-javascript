@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+}
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+.header, .nav {
+    grid-column: 2 / 4;
+}
+.nav {
+    display: grid;
+}
+.sidebar {
+    grid-row: 1;
+}
+button {
+    display: flex;
+}
+.projects {
+    grid-column: 2 / 3;
+}
