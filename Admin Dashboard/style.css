@@ -11,8 +11,14 @@ body {
     display: grid; 
     grid-row: 1 / 1;
 }
-.nav {
+.top-header {
     display: flex;
+    align-items: center;
+    margin-bottom: -10px;
+}
+.nav {
+    display: grid;
+    align-self: flex-start;
 }
 .sidebar {
     grid-row: 1 / 3;
@@ -26,7 +32,17 @@ button {
     border: 0;
     font-weight: 600;
     font-size: 15px;
+    margin: 15px;
 }
+.nav-button {
+    align-self: center;
+    grid-column: 3 / 3;
+}
+.greeting {
+    margin-right: auto;
+    grid-column: 1 / 3;
+}
+
 .projects {
     grid-column: 2 / 3;
 }
