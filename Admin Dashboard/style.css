@@ -3,7 +3,7 @@ body {
 }
 .container {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 1fr 2fr 2fr;
 }
 .header {
@@ -63,7 +63,30 @@ button {
 }
 .projects {
     grid-column: 2 / 3;
+    background-color: hsla(202, 31%, 77%, 0.877);
 }
-.card > img {
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+.card > div > img {
     width: 30px;
+    justify-self: end;
+    align-self: flex-end;
+    gap: 15px;
+    padding: 5px;
+}
+.card {
+    background-color: white;
+    border-radius: 10px;
+    justify-self: start;
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+}
+.line {
+    width: 20px;
+    background-color: hsl(210, 40%, 30%);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
