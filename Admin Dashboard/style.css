@@ -4,18 +4,28 @@ body {
 .container {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr;
 }
-.header, .nav {
+.header {
     grid-column: 2 / 4;
+    display: grid; 
+    grid-row: 1 / 1;
 }
 .nav {
-    display: grid;
+    display: flex;
 }
 .sidebar {
-    grid-row: 1;
+    grid-row: 1 / 3;
 }
 button {
-    display: flex;
+    height: 40px;
+    width: 80px;
+    border-radius: 20px;
+    color: aliceblue;
+    background-color: hsl(210, 50%, 50%);
+    border: 0;
+    font-weight: 600;
+    font-size: 15px;
 }
 .projects {
     grid-column: 2 / 3;
