@@ -9,23 +9,25 @@
 
 <body>
     <button id="showDialog">Add a book</button>
+    <button onclick="showBooks()">Show Books</button>
     <dialog id="addBook">
-        <form action="#">
+        <form action="#" id="formBook" method="dialog">
             <p>Enter with your new book</p>
             <label for="author">Author</label>
-            <input type="text" name="author" required>
+            <input type="text" name="author" id="book-author" required>
             <label for="title">Title</label>
-            <input type="text" name="title" required>
+            <input type="text" name="title" id="book-title" required>
             <label for="pages">Number of pages</label>
-            <input type="number" name="pages" required>
+            <input type="number" name="pages" id="book-pages" required>
             <section>
                 <label for="read">Is It been read?</label>
-                <input type="checkbox" name="read">
+                <input type="checkbox" name="read" id="book-read">
             </section>
-            <button type="submit">ADD</button>
-            <button type="reset">Cancel</button>
+            <button type="submit" onclick="addBookToLibrary()">ADD</button>
+            <button class="closeDialog">Cancel</button>
         </form>
     </dialog>
+    <div class="cards"></div>
     <script src="index.js"></script>
 </body>
 
