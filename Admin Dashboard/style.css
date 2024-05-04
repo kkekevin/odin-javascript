@@ -106,6 +106,9 @@ button {
 .card > div > div > img {
     width: 30px;
 }
+.card > div > p {
+    color: gray;
+}
 .card {
     background-color: white;
     border-radius: 10px;
@@ -114,8 +117,38 @@ button {
     grid-template-columns: 1fr 10fr;
 }
 .line {
-    width: 20px;
+    width: 10px;
     background-color: hsl(210, 40%, 30%);
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+}
+.main-right {
+    background-color: hsla(202, 31%, 77%, 0.877);
+    grid-row: 2 / 4;
+    padding: 15px;
+}
+.sidecard.announce {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+.sidecard.trend {
+    background-color: white;
+    border-radius: 10px;
+}
+.sidesection > p {
+    color: gray;
+    font-size: small;
+    padding-top: 0;
+    margin-top: -10px;
+}
+.user-info > p {
+    font-size: small;
+    padding-top: 0;
+    margin-top: -10px;
+}
+.announce-line {
+    height: 1px;
+    width: 100%;
+    background-color: gray;
 }
