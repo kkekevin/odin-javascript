@@ -40,9 +40,29 @@ function addBookToLibrary() {
 }
 
 function addCard(newBook) {
-    const div = document.createElement('div');
-    div.textContent = `${newBook}`;
-    cards.appendChild(div);
+    const name = document.createElement('h3');
+    const author = document.createElement('h5');
+    const pages = document.createElement('p');
+    const read = document.createElement('label');
+    const input = document.createElement('input');
+    const button = document.createElement('button');
+    button.classList.add('cancel-button');
+    input.type = 'checkbox';
+
+    name.textContent = `${newBook.name}`;
+    author.textContent = `${newBook.author}`;
+    pages.textContent = `${newBook.pages}`;
+    if(newBook.read) {
+        input.checked = true
+    } else {
+        input.checked = false;
+    }
+    read.appendChild(input);
+    cards.appendChild(name);
+    cards.appendChild(author);
+    cards.appendChild(pages);
+    cards.appendChild(read);
+    cards.appendChild(button);
 }
 
 function showBooks() {
