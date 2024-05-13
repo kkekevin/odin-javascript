@@ -3,6 +3,7 @@ const addDialog = document.getElementById('addBook');
 const closeDialog = document.querySelector('.closeDialog');
 const cards = document.querySelector('.cards');
 const formBook = document.getElementById('formBook');
+const deleteButton = document.getElementsByClassName('cancel-button');
 const myLibrary = [];
 
 class Book {
@@ -40,29 +41,41 @@ function addBookToLibrary() {
 }
 
 function addCard(newBook) {
+    const div = document.createElement('div');
     const name = document.createElement('h3');
     const author = document.createElement('h5');
     const pages = document.createElement('p');
     const read = document.createElement('label');
     const input = document.createElement('input');
     const button = document.createElement('button');
+    div.classList.add('card');
     button.classList.add('cancel-button');
     input.type = 'checkbox';
 
     name.textContent = `${newBook.name}`;
     author.textContent = `${newBook.author}`;
     pages.textContent = `${newBook.pages}`;
-    if(newBook.read) {
+    if (newBook.read) {
         input.checked = true
     } else {
         input.checked = false;
     }
     read.appendChild(input);
-    cards.appendChild(name);
-    cards.appendChild(author);
-    cards.appendChild(pages);
-    cards.appendChild(read);
-    cards.appendChild(button);
+    div.appendChild(name);
+    div.appendChild(author);
+    div.appendChild(pages);
+    div.appendChild(read);
+    div.appendChild(button);
+    cards.appendChild(div);
+    deleteCard();
+}
+
+function deleteCard() {
+    for (var i = 0; i < deleteButton.length; i++) {
+        deleteButton[i].addEventListener('click', function() {
+            this.parentNode.remove();
+        });
+    }
 }
 
 function showBooks() {
