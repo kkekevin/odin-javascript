@@ -42,8 +42,8 @@ function addBookToLibrary() {
 
 function addCard(newBook) {
     const div = document.createElement('div');
-    const name = document.createElement('h3');
-    const author = document.createElement('h5');
+    const name = document.createElement('h2');
+    const author = document.createElement('h4');
     const pages = document.createElement('p');
     const read = document.createElement('label');
     const input = document.createElement('input');
@@ -53,8 +53,9 @@ function addCard(newBook) {
     input.type = 'checkbox';
 
     name.textContent = `${newBook.name}`;
-    author.textContent = `${newBook.author}`;
-    pages.textContent = `${newBook.pages}`;
+    author.textContent = `Author: ${newBook.author}`;
+    pages.textContent = `Number of pages: ${newBook.pages}`;
+    button.textContent = 'Delete Book';
     if (newBook.read) {
         input.checked = true
     } else {
@@ -74,6 +75,7 @@ function deleteCard() {
     for (var i = 0; i < deleteButton.length; i++) {
         deleteButton[i].addEventListener('click', function() {
             this.parentNode.remove();
+            myLibrary.splice(i - 1, 1);
         });
     }
 }
