@@ -6,7 +6,6 @@
 }
 .card {
     height: 250px;
-    border-color: gray;
     border-style: groove;
     border-radius: 15px;
     padding: 20px;

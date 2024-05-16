@@ -55,11 +55,14 @@ function addCard(newBook) {
     name.textContent = `${newBook.name}`;
     author.textContent = `Author: ${newBook.author}`;
     pages.textContent = `Number of pages: ${newBook.pages}`;
+    read.textContent = 'Read '
     button.textContent = 'Delete Book';
     if (newBook.read) {
         input.checked = true
+        div.setAttribute('style', 'border-color: green');
     } else {
         input.checked = false;
+        div.setAttribute('style', 'border-color: red');
     }
     read.appendChild(input);
     div.appendChild(name);
@@ -69,6 +72,13 @@ function addCard(newBook) {
     div.appendChild(button);
     cards.appendChild(div);
     deleteCard();
+    input.addEventListener('click', () =>{
+        if(input.checked) {
+            div.setAttribute('style', 'border-color: green');
+        } else {
+            div.setAttribute('style', 'border-color: red');
+        }
+    })
 }
 
 function deleteCard() {
@@ -80,6 +90,9 @@ function deleteCard() {
     }
 }
 
+function setBorderColor(checked) {
+    return checked ? 'border-color: green' : 'border-color: red';
+} 
 function showBooks() {
     myLibrary.forEach(element => console.log(element));
 }
