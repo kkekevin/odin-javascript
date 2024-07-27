@@ -5,6 +5,7 @@ const route = require ('./routes/index');
 const messageRoute = require ('./routes/message')
 
 app.use("/", route);
+app.use('/new', route);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

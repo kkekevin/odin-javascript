@@ -1,22 +1,25 @@
-const { Router } = require ('express');
+const { Router } = require('express');
 const router = Router();
 
 const messages = [
-    {
-      text: "Hi there!",
-      user: "Amando",
-      added: new Date()
-    },
-    {
-      text: "Hello World!",
-      user: "Charles",
-      added: new Date()
-    }
-  ];
+  {
+    text: "Hi there!",
+    user: "Amando",
+    added: new Date()
+  },
+  {
+    text: "Hello World!",
+    user: "Charles",
+    added: new Date()
+  }
+];
 
 
 router.get('/', (req, res) => {
-  res.render('index', { title: "Mini Messageboard", messages : messages });
+  res.render('index', { title: "Mini Messageboard", messages: messages });
+});
+router.get('/new', (req, res) => {
+  res.render('form');
 });
 
 module.exports = router;
