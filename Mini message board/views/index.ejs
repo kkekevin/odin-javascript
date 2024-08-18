@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title><%= title %></title>
 </head>
 
 <body>
@@ -13,7 +13,8 @@
     <% messages.forEach((msg, index)=> { %>
       <li>
           <%- JSON.stringify(msg); %>
-          <a href="/message/<%- index %>">Details</a>
+          <a href="/message/<%- msg.username %>">Details</a>
+          <a href="/message/delete/<%- msg.username %>">Delete</a>
       </li>
       <% }); %>
   </ul>

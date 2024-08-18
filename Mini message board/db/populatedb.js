@@ -1,7 +1,7 @@
 const { Client } = require("pg");
 const dotenv = require('dotenv');
 dotenv.config({ path: `${__dirname}/../.env` });
-const added = new Date();
+const msg = require('../models/msgModel');
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS messages (
@@ -13,8 +13,8 @@ CREATE TABLE IF NOT EXISTS messages (
 
 INSERT INTO messages (username, text, added) 
 VALUES
-  ('Amando', 'Hi there!', '${added}'),
-  ('Charles', 'Hello World!', '${added}');
+  ('${msg[0].user}', '${msg[0].text}', '${msg[0].added}'),
+  ('${msg[1].user}', '${msg[1].text}', '${msg[1].added}');
 `;
 
 async function main() {

@@ -8,7 +8,6 @@ dotenv.config({ path: `${__dirname}/.env` });
 
 app.use(express.urlencoded({ extended: true }));
 app.use("/", route);
-app.use('/new', route);
 app.use('/message', messageRoute);
 //app.use(express.json());
 app.set('views', path.join(__dirname, 'views'));
