@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+<body>
+  <h1><%= title %></h1>
+  <%- include("partials/errors.ejs") %>
+  <form action="/newitem" method="POST">
+    <label for="category">Category</label>
+    <%- include("partials/categoryOptions") %>
+    <label for="item">Item Name: </label>
+    <input type="text" name="item" required>
+    <label for="quant">Quantity: </label>
+    <input type="number" name="quant" required>
+    <button type="submit">Submit</button>
+  </form>
+  <a href="/">Back to home</a>
+</body>
+</html>

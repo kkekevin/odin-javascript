@@ -1,0 +1,7 @@
+<% if (locals.categories) {%>
+    <select name="category" required>
+    <% categories.forEach(function(category) { %>
+        <option value="<%= category.category %>"><%= category.category %></option>
+    <% }); %>
+    </select>
+<% } %>

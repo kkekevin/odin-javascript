@@ -1,0 +1,6 @@
+<ul>
+<% beverages.forEach((beverage) => { %>
+    <li>ID: <%= beverage.item_id %>, Name: <%= beverage.item %>, Quant: <%= beverage.quant %></li>
+    <!-- This time we're sending a POST request to our route, so we need a form. -->
+  <% }); %>
+</ul>
