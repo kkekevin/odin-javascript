@@ -20,13 +20,15 @@ async function insertItem(content) {
 async function insertCategory(content) {
   await pool.query(`INSERT INTO categories (category) VALUES ('${content.category}') ;`);
 }
-
+async function getItem(content) {
+  const { rows } = await pool.query(`SELECT * FROM items WHERE category='${content}' ;`);
+  return rows;
+}
 
 module.exports = {
   getProducts,
   getCategory,
   insertCategory,
   insertItem,
-  fetchUsers,
-  deleteUsers
+  getItem
 };
