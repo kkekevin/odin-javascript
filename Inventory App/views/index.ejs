@@ -5,6 +5,11 @@
 </head>
 <body>
   <h1><%= title %></h1>
+  <form action="/search">
+    <label for="product">Product: </label>
+    <input type="text" name="product" required>
+    <button type="submit">Search</button>
+  </form>
   <% if (locals.beverages) {%>
     <%- include("partials/products") %>
   <% } %>

@@ -25,10 +25,16 @@ async function getItem(content) {
   return rows;
 }
 
+async function findProduct(content) {
+  const { rows } = await pool.query(`SELECT * FROM items WHERE item='${content}' ;`)
+  return rows;
+}
+
 module.exports = {
   getProducts,
   getCategory,
   insertCategory,
   insertItem,
-  getItem
+  getItem,
+  findProduct
 };

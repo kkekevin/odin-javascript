@@ -1,11 +1,20 @@
 const db = require('../db/queries');
 
 async function getProducts(req, res) {
-    const product = await db.getProducts();
-    res.render('index', {
-        title: 'Beverage store',
-        beverages: product
-    });
+    if (req.query.product) {
+     
+        const items = await db.findProduct(req.query.product);
+        res.render('index', {
+            title: 'List of items',
+            beverages: items
+        });
+    } else {
+        const product = await db.getProducts();
+        res.render('index', {
+            title: 'Beverage store',
+            beverages: product
+        });
+    }
 }
 
 function newCategoryGet(req, res) {

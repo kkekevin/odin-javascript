@@ -8,5 +8,6 @@ inteventoryRouter.get('/newitem', beverageController.newItemGet);
 inteventoryRouter.post('/newcategory', beverageController.newCategoryPost);
 inteventoryRouter.post('/newitem', beverageController.newItemPost);
 inteventoryRouter.get('/categories', beverageController.categoriesGet);
+inteventoryRouter.get('/search', beverageController.getProducts);
 
 module.exports = inteventoryRouter;
