@@ -1,7 +1,9 @@
 <ul>
 <% beverages.forEach((beverage) => { %>
     <li>ID: <%= beverage.item_id %>, Name: <%= beverage.item %>, Quant: <%= beverage.quant %></li>
-    <a href="/cart?item=<%- beverage.item %>&quant=1">Update</a>
+    <% if(beverage.quant > 0) { %>
+      <a href="/cart?item=<%- beverage.item %>&quant=1">Update</a>
+    <% } %>
     <!-- This time we're sending a POST request to our route, so we need a form. -->
   <% }); %>
 </ul>

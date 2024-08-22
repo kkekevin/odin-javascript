@@ -61,7 +61,6 @@ async function categoriesGet(req, res) {
     }
 }
 
-async function categoriesPost(req, res) { }
 async function cartGet(req, res) {
     cart.push(req.query);
     const product = await db.getProducts();
