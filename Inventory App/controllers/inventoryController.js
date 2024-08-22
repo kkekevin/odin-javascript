@@ -32,6 +32,9 @@ async function newItemGet(req, res) {
 async function newCategoryPost(req, res) {
     const content = req.body;
     db.insertCategory(content);
+    process.on('uncaughtException', function (error) {
+        console.log(error.stack);
+     });
     res.redirect('/');
 }
 
