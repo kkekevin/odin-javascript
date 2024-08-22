@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= title %></h1>
+  <form action="/search">
+    <label for="product">Product: </label>
+    <input type="text" name="product" required>
+    <button type="submit">Search</button>
+  </form>
+  <% if (locals.items) {%>
+      <%- include("partials/updateItems") %>
+  <% } %>
+  <form action="/cart" method="post">
+    <input type="submit" value="GO">
+  </form>
+  <% if (locals.beverages) {%>
+    <%- include("partials/products") %>
+  <% } %>
+  <a href="/newcategory">Create category</a>
+  <a href="/newitem">Create item</a>
+  <a href="/categories">List of categories</a>
+</body>
+</html>

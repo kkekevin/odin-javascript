@@ -30,11 +30,19 @@ async function findProduct(content) {
   return rows;
 }
 
+async function alterQuant(content) {
+  await pool.query(`UPDATE items
+                    SET quant= quant - 1
+                    WHERE item='${content}'
+                    ;`);
+}
+
 module.exports = {
   getProducts,
   getCategory,
   insertCategory,
   insertItem,
   getItem,
-  findProduct
+  findProduct,
+  alterQuant
 };
