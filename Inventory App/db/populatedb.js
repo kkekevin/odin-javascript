@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS categories (
 CREATE TABLE IF NOT EXISTS items (
   item_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   category VARCHAR ( 30 ),
-  item VARCHAR ( 30 ),
+  item VARCHAR ( 30 ) UNIQUE,
   quant INTEGER,
   CONSTRAINT fk_category
     FOREIGN KEY(category)

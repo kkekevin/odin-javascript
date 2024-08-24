@@ -41,7 +41,11 @@ async function newCategoryPost(req, res) {
 
 async function newItemPost(req, res) {
     const content = req.body;
-    db.insertItem(content);
+    if (db.findProduct(content.item))
+        db.addQuant(content);
+    else 
+        db.insertItem(content);
+    
     res.redirect('/');
 }
 
@@ -62,6 +66,7 @@ async function categoriesGet(req, res) {
 }
 
 async function cartGet(req, res) {
+    const newItem = req.query;
     cart.push(req.query);
     const product = await db.getProducts();
     cart.forEach((item) => {
@@ -81,7 +86,7 @@ async function cartGet(req, res) {
 
 async function cartPost(req, res) {
     cart.forEach((item) => {
-        db.alterQuant(item.item);
+        db.subQuant(item.item);
     });
     cart = null;
     res.redirect('/');
