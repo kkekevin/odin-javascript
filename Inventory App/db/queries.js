@@ -32,8 +32,8 @@ async function findProduct(content) {
 
 async function subQuant(content) {
   await pool.query(`UPDATE items
-                    SET quant= quant - 1
-                    WHERE item='${content}'
+                    SET quant= quant - ${content.quant}
+                    WHERE item='${content.item}'
                     ;`);
 }
 

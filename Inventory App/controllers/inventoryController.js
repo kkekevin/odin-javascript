@@ -66,17 +66,24 @@ async function categoriesGet(req, res) {
 }
 
 async function cartGet(req, res) {
-    const newItem = req.query;
     cart.push(req.query);
     const product = await db.getProducts();
-    cart.forEach((item) => {
-        for (let i = 0; i < product.length; i++){
-            if (item.item == product[i].item)
-                product[i].quant--;
-            if (product[i].quant == 0)
-                product.splice(i, 1);
+    let even = false;
+    for (let i = 0; i < cart.length - 1; i++){
+        if (cart.length > 1 && cart[i].item == cart[cart.length - 1].item) {
+            cart[i].quant++;
+            even = true;
         }
-    });
+        for (let j = 0; j < product.length; j++){
+            if (cart[i].item == product[j].item)
+                product[j].quant -= cart[i].quant;
+            if (product[j].quant == 0)
+                product.splice(j, 1);
+        }
+    }
+    if (even && cart.length > 1)
+        cart.splice(-1);
+    console.log(cart);
     res.render('cart', {
         title: "Shopping cart",
         items: cart,
@@ -85,9 +92,7 @@ async function cartGet(req, res) {
 }
 
 async function cartPost(req, res) {
-    cart.forEach((item) => {
-        db.subQuant(item.item);
-    });
+    cart.forEach((item) => db.subQuant(item));
     cart = null;
     res.redirect('/');
 }
