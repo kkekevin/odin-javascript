@@ -41,7 +41,7 @@ async function newCategoryPost(req, res) {
 
 async function newItemPost(req, res) {
     const content = req.body;
-    if (db.findProduct(content.item))
+    if (db.findProduct(content.item) == content.item)
         db.addQuant(content);
     else 
         db.insertItem(content);
@@ -83,7 +83,6 @@ async function cartGet(req, res) {
     }
     if (even && cart.length > 1)
         cart.splice(-1);
-    console.log(cart);
     res.render('cart', {
         title: "Shopping cart",
         items: cart,
@@ -93,7 +92,7 @@ async function cartGet(req, res) {
 
 async function cartPost(req, res) {
     cart.forEach((item) => db.subQuant(item));
-    cart = null;
+    cart = [];
     res.redirect('/');
 }
 
