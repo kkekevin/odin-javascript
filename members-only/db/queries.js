@@ -7,6 +7,18 @@ async function newUser (content, password) {
         ;`);
 }
 
+async function fetchUser (content) {
+    const { rows } = await pool.query(`SELECT * FROM users WHERE email='${content}' ;`);
+    return rows[0];
+}
+
+async function fetchUserId (id) {
+    const { rows } = await pool.query("SELECT * FROM users WHERE user_id = $1", [id]);
+    return rows[0];
+}
+
 module.exports = {
-    newUser
+    newUser,
+    fetchUser,
+    fetchUserId
 }

@@ -6,13 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/home" method="post">
-        <label for="email">Email</label>
-        <input type="email" name="email" required>
+    <% if (user) { %>
+        <h1>WELCOME BACK <%= user.last_name %></h1>
+        <a href="/log-out">LOG OUT</a>
+    <% } else { %>
+    <form action="/" method="post">
+        <label for="username">Email</label>
+        <input type="text" name="username" required>
         <label for="password">Password</label>
         <input type="password" name="password" required>
         <button type="submit">Log in</button>
     </form>
     <a href="/sign-up">Sign up</a>
+    <% } %>
 </body>
 </html>

@@ -2,7 +2,7 @@ const db = require("../db/queries");
 const genPassword = require("../lib/passwordUtils").genPassword;
 
 async function login (req, res) {
-    res.send("you're in");
+    res.render("index", { user: req.user });
 }
 
 async function createUserGet (req, res) {
