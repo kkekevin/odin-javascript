@@ -1,11 +1,11 @@
 const db = require("../db/queries");
 const genPassword = require("../lib/passwordUtils").genPassword;
 
-async function login (req, res) {
+function login (req, res) {
     res.render("index", { user: req.user });
 }
 
-async function createUserGet (req, res) {
+function createUserGet (req, res) {
     res.render("signup");
 }
 
@@ -16,8 +16,14 @@ async function createUserPost (req, res) {
     res.redirect('/');
 }
 
+function dashboard (req, res) {
+    res.locals.user = req.user;
+    res.render("dashboard");
+}
+
 module.exports = {
     login,
     createUserGet,
-    createUserPost
+    createUserPost,
+    dashboard
 }

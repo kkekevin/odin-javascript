@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="top-header">
+                <img src="icons/magnify.svg" alt="magnify">
+                <input type="search">
+                <div>
+                    <img src="icons/bell-ring.svg" alt="bell ringing">
+                    <img src="icons/bat.svg" alt="bat" style="width: 70px;">
+                    <p><%- locals.user.first_name %> <%- locals.user.last_name %></p>
+                </div>
+            </div>
+            <div class="nav">
+                <img src="icons/bat.svg" alt="bat" style="width: 100px;">
+                <div class="greeting">
+                    <h5>Hi there,</h5>
+                    <h3><%- locals.user.first_name %> <%- locals.user.last_name %> (@kevin)</h3>
+                </div>
+                <div class="nav-button">
+                    <button>New</button>
+                    <button>Upload</button>
+                    <a href="/home/log-out"><button>Log out</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="logo">
+                <img src="icons/alien.svg" alt="alien">
+                <h2>Dashboard</h2>
+            </div>
+            <br>
+            <div class="sidebar-link">
+                <img src="icons/home.svg" alt="house">
+                <h3>Home</h3>
+            </div>
+            <div class="sidebar-link">
+                <img src="icons/profile.svg" alt="Profile">
+                <h3>Profile</h3>
+            </div>
+            <div class="sidebar-link">
+                <img src="icons/message.svg" alt="message box">
+                <h3>Messages</h3>
+            </div>
+            <div class="sidebar-link">
+                <img src="icons/history.svg" alt="clock">
+                <h3>History</h3>
+            </div>
+            <div class="sidebar-link">
+                <img src="icons/tasks.svg" alt="papers">
+                <h3>Taks</h3>
+            </div>
+            <div class="sidebar-link">
+                <img src="icons/communities.svg" alt="group of users">
+                <h3>Communities</h3>
+            </div>
+            <p></p><br>
+            <div class="sidebar-link">
+                <img src="icons/settings.svg" alt="cog">
+                <h3>Settings</h3>
+            </div>
+            <div class="sidebar-link">
+                <img src="icons/support.svg" alt="face agent">
+                <h3>Support</h3>
+            </div>
+            <div class="sidebar-link">
+                <img src="icons/privacy.svg" alt="shield check">
+                <h3>Privacy</h3>
+            </div>
+        </div>
+        <div class="projects">
+            <h3>Your Projects</h3>
+            <div class="project-cards">
+                <%- include('partials/messages') %>
+            </div>
+        </div>
+        <div class="main-right">
+            <h3>Announcements</h3>
+            <div class="sidecard announce">
+                <div class="sidesection">
+                    <h5>Site Maintenance</h5>
+                    <p>Vestibulum condimentum tellus lacus, in accumsan elit maximus ac. Donec hendrerit sodales congue</p>
+                </div>
+                <div class="announce-line"></div>
+                <div class="sidesection">
+                    <h5>Community Share Day</h5>
+                    <p>Vestibulum condimentum tellus lacus, in accumsan elit maximus ac. Donec hendrerit sodales congue</p>
+                </div>
+                <div class="announce-line"></div>
+                <div class="sidesection">
+                    <h5>Updated Privacy Policy</h5>
+                    <p>Vestibulum condimentum tellus lacus, in accumsan elit maximus ac. Donec hendrerit sodales congue</p>
+                </div>
+            </div>
+            <p></p>
+            <h3>Trending</h3>
+            <div class="sidecard trend">
+                <div class="trending card">
+                    <img src="" alt="">
+                    <div class="user-info">
+                        <h5>@tegan</h5>
+                        <p>World Peace Builder</p>
+                    </div>
+                </div>
+                <div class="trending card">
+                    <img src="" alt="">
+                    <div class="user-info">
+                        <h5>@morgan</h5>
+                        <p>Super Cool Project</p>
+                    </div>
+                </div>
+                <div class="trending card">
+                    <img src="" alt="">
+                    <div class="user-info">
+                        <h5>@kendall</h5>
+                        <p>Life Changing App</p>
+                    </div>
+                </div>
+                <div class="trending card">
+                    <img src="" alt="">
+                    <div class="user-info">
+                        <h5>@alex</h5>
+                        <p>No Traffic Maker</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

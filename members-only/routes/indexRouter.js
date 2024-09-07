@@ -5,9 +5,10 @@ const passport = require('passport');
 
 router.get('/', siteController.login);
 router.post('/', passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/home',
     failureRedirect: '/'
 }), siteController.login);
+
 router.get('/log-out', (req, res, next) => {
     req.logout((err) => {
         if (err)
@@ -15,6 +16,7 @@ router.get('/log-out', (req, res, next) => {
         res.redirect('/');
     });
 });
+
 router.get('/sign-up', siteController.createUserGet);
 router.post('/sign-up', siteController.createUserPost);
 

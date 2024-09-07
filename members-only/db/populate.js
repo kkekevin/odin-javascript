@@ -1,6 +1,8 @@
 const { Client } = require('pg');
 const dotenv = require('dotenv');
 dotenv.config({ path: `${__dirname}/../.env` });
+const password = require("../lib/passwordUtils").genPassword('admin');
+// const adminPassword = genPassword
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS users (
@@ -10,6 +12,7 @@ CREATE TABLE IF NOT EXISTS users (
   email VARCHAR ( 30 ) UNIQUE NOT NULL,
   password VARCHAR ( 255 ) NOT NULL,
   salt VARCHAR ( 255 ) NOT NULL,
+  admin BOOLEAN NOT NULL,
   PRIMARY KEY (user_id)
 );
 
@@ -23,8 +26,11 @@ CREATE TABLE IF NOT EXISTS messages (
       REFERENCES users (user_id)
 );
 
-  `;
+INSERT INTO users (first_name, last_name, email, password, salt, admin)
+  VALUES
+  ('admin', 'admin', 'admin@odinproject.com', '${password.hash}', '${password.salt}', TRUE);
 
+  `;
 
 async function main() {
   console.log("seeding...");
