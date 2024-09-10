@@ -16,14 +16,19 @@ async function createUserPost (req, res) {
     res.redirect('/');
 }
 
-function dashboard (req, res) {
+async function dashboard (req, res) {
     res.locals.user = req.user;
-    res.render("dashboard");
+    res.locals.msgs = await db.getAllMsgs();
+    res.render("dashboard", {
+        title: "Messages",
+        path: 'partials/messages'
+    });
 }
+
 
 module.exports = {
     login,
     createUserGet,
     createUserPost,
-    dashboard
+    dashboard,
 }

@@ -27,9 +27,9 @@
                     <h3><%- locals.user.first_name %> <%- locals.user.last_name %> (@kevin)</h3>
                 </div>
                 <div class="nav-button">
-                    <button>New</button>
+                    <a href="/msg"><button>New</button></a>
                     <button>Upload</button>
-                    <a href="/home/log-out"><button>Log out</button></a>
+                    <a href="/log-out"><button>Log out</button></a>
                 </div>
             </div>
         </div>
@@ -79,9 +79,9 @@
             </div>
         </div>
         <div class="projects">
-            <h3>Your Projects</h3>
+            <h3><%- title %></h3>
             <div class="project-cards">
-                <%- include('partials/messages') %>
+                <%- include(path) %>
             </div>
         </div>
         <div class="main-right">

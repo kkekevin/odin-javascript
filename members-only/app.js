@@ -16,7 +16,7 @@ app.use(passport.session());
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use('/', route)
-app.use('/home', msgRoute);
+app.use('/msg', msgRoute);
 app.use(express.static(__dirname + "/../Admin Dashboard/"));
 
 PORT = process.env.PORT || 5000;

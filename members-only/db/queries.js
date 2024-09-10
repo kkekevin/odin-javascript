@@ -2,8 +2,8 @@ const pool = require('./pool');
 
 async function newUser (content, password) {
     await pool.query(`INSERT INTO users (first_name, last_name, email, password, salt, admin) 
-                    VALUES
-                    ('${content.firstname}', '${content.lastname}', '${content.email}', '${password.hash}', '${password.salt}', FALSE)
+                        VALUES
+                        ('${content.firstname}', '${content.lastname}', '${content.email}', '${password.hash}', '${password.salt}', FALSE)
         ;`);
 }
 
@@ -17,8 +17,22 @@ async function fetchUserId (id) {
     return rows[0];
 }
 
+async function insertMsg (user_id, msg) {
+    await pool.query(`INSERT INTO messages (message, added, user_id)
+                        VALUES
+                        ('${msg}', '${new Date}', ${user_id})
+                    ;`);
+}
+
+async function getAllMsgs () {
+    const { rows } = await pool.query("SELECT * FROM messages");
+    return rows;
+}
+
 module.exports = {
     newUser,
     fetchUser,
-    fetchUserId
+    fetchUserId,
+    insertMsg,
+    getAllMsgs
 }

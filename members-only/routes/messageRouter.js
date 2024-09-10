@@ -1,16 +1,9 @@
 const express = require('express');
 const router = new express.Router();
-const siteController = require('../controllers/siteController');
+const msgController = require('../controllers/msgController');
 const userType = require('./authMiddleware')
 
-router.get('/', userType.isAuth, siteController.dashboard);
-router.get('/log-out', (req, res, next) => {
-    req.logout((err) => {
-        if (err)
-            return next (err);
-        res.redirect('/');
-    });
-});
-
+router.get('/', userType.isAuth, msgController.get);
+router.post('/', msgController.post);
 
 module.exports = router;
