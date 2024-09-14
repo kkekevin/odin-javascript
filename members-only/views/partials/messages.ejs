@@ -3,7 +3,11 @@
         <div class="card">
             <div class="line"></div>
             <div>
-                <h4>ID: <%- msg.user_id %></h4>
+                <% if (locals.user) { %>
+                    <h4>ID: <%- msg.user_id %></h4>
+                <% } else { %>
+                    <h4>Anonymous message</h4>
+                <% } %>
                 <p><%- msg.message %></p>
             <div>
                     <img src="icons/star.svg" alt="star plus">
