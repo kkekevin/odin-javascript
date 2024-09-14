@@ -29,10 +29,18 @@ async function getAllMsgs () {
     return rows;
 }
 
+async function getUserMsgs (id) {
+    const { rows } = await pool.query("SELECT * FROM messages WHERE user_id = $1", [id]);
+    return rows;
+}
+
+
+
 module.exports = {
     newUser,
     fetchUser,
     fetchUserId,
     insertMsg,
-    getAllMsgs
+    getAllMsgs,
+    getUserMsgs
 }

@@ -1,7 +1,8 @@
 const db = require("../db/queries");
 const genPassword = require("../lib/passwordUtils").genPassword;
 
-function login (req, res) {
+async function login (req, res) {
+    res.locals.msgs = await db.getAllMsgs();
     res.render("index", { user: req.user });
 }
 
@@ -25,10 +26,21 @@ async function dashboard (req, res) {
     });
 }
 
+async function myMsgs (req, res) {
+    res.locals.user = req.user;
+    res.locals.msgs = await db.getUserMsgs(req.params.id);
+
+    res.render('dashboard', {
+        title: "My messages",
+        path: 'partials/messages'
+    });
+}
+
 
 module.exports = {
     login,
     createUserGet,
     createUserPost,
     dashboard,
+    myMsgs
 }
