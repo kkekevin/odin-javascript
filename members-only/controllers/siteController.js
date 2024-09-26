@@ -1,5 +1,6 @@
 const db = require("../db/queries");
 const genPassword = require("../lib/passwordUtils").genPassword;
+const moment = require('moment');
 
 async function login (req, res) {
     res.locals.msgs = await db.getAllMsgs();
@@ -19,7 +20,11 @@ async function createUserPost (req, res) {
 
 async function dashboard (req, res) {
     res.locals.user = req.user;
-    res.locals.msgs = await db.getAllMsgs();
+    msgs = await db.getAllMsgs();
+    res.locals.msgs = msgs;
+    msgs.forEach(msg => {
+        msg.added = moment(msg.added).fromNow();
+    });
     res.render("dashboard", {
         title: "Messages",
         path: 'partials/messages'
