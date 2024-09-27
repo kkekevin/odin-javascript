@@ -3,6 +3,7 @@ const router = new Router();
 const siteController = require('../controllers/siteController');
 const passport = require('passport');
 const userType = require('./authMiddleware');
+const userValidation = require('../models/userModel');
 
 
 router.get('/', siteController.login);
@@ -20,7 +21,7 @@ router.get('/log-out', (req, res, next) => {
 });
 
 router.get('/sign-up', siteController.createUserGet);
-router.post('/sign-up', siteController.createUserPost);
+router.post('/sign-up',userValidation, siteController.createUserPost);
 
 router.get('/home', userType.isAuth, siteController.dashboard);
 router.get('/log-out', (req, res, next) => {

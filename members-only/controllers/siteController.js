@@ -1,9 +1,14 @@
 const db = require("../db/queries");
 const genPassword = require("../lib/passwordUtils").genPassword;
 const moment = require('moment');
+const { validationResult } = require("express-validator");
 
 async function login (req, res) {
-    res.locals.msgs = await db.getAllMsgs();
+    msgs = await db.getAllMsgs();
+    msgs.forEach(msg => {
+        msg.added = moment(msg.added).fromNow();
+    });
+    res.locals.msgs = msgs;
     res.render("index", { user: req.user });
 }
 
@@ -12,6 +17,13 @@ function createUserGet (req, res) {
 }
 
 async function createUserPost (req, res) {
+    // use validation here
+    const errors = validationResult(req);
+    if(!errors.isEmpty()) {
+        res.locals.error = errors.formatWith(error => error.msg).array();
+        return res.status(400).render('signup');
+    }
+
     const password = genPassword(req.body.password);
     await db.newUser(req.body, password);
     process.on('uncaughtException', (error) => console.log(error));
@@ -21,10 +33,10 @@ async function createUserPost (req, res) {
 async function dashboard (req, res) {
     res.locals.user = req.user;
     msgs = await db.getAllMsgs();
-    res.locals.msgs = msgs;
     msgs.forEach(msg => {
         msg.added = moment(msg.added).fromNow();
     });
+    res.locals.msgs = msgs;
     res.render("dashboard", {
         title: "Messages",
         path: 'partials/messages'
