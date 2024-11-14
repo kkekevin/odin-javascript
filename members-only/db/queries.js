@@ -34,6 +34,10 @@ async function getUserMsgs (id) {
     return rows;
 }
 
+async function deleteMsg (msg) {
+    await pool.query("DELETE FROM messages WHERE message_id = $1", [msg]);
+}
+
 
 
 module.exports = {
@@ -42,5 +46,6 @@ module.exports = {
     fetchUserId,
     insertMsg,
     getAllMsgs,
-    getUserMsgs
+    getUserMsgs,
+    deleteMsg
 }

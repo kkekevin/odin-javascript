@@ -9,4 +9,6 @@ router.post('/', msgController.post);
 
 router.get('/:id', userType.isAuth, siteController.myMsgs);
 
+router.get('/d/:id', userType.isAdmin, siteController.deleteMsg);
+
 module.exports = router;

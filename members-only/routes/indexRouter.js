@@ -10,6 +10,7 @@ router.get('/', siteController.login);
 router.post('/', passport.authenticate('local', {
     successRedirect: '/home',
     failureRedirect: '/'
+
 }), siteController.login);
 
 router.get('/log-out', (req, res, next) => {

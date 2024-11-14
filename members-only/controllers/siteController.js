@@ -5,9 +5,9 @@ const { validationResult } = require("express-validator");
 
 async function login (req, res) {
     msgs = await db.getAllMsgs();
-    msgs.forEach(msg => {
-        msg.added = moment(msg.added).fromNow();
-    });
+    // msgs.forEach(msg => {
+    //     msg.added = moment(msg.added).fromNow();
+    // });
     res.locals.msgs = msgs;
     res.render("index", { user: req.user });
 }
@@ -33,9 +33,9 @@ async function createUserPost (req, res) {
 async function dashboard (req, res) {
     res.locals.user = req.user;
     msgs = await db.getAllMsgs();
-    msgs.forEach(msg => {
-        msg.added = moment(msg.added).fromNow();
-    });
+    // msgs.forEach(msg => {
+    //     msg.added = moment(msg.added).fromNow();
+    // });
     res.locals.msgs = msgs;
     res.render("dashboard", {
         title: "Messages",
@@ -53,11 +53,17 @@ async function myMsgs (req, res) {
     });
 }
 
+async function deleteMsg (req, res) {
+    await db.deleteMsg(req.params.id);
+    console.log("the msg with id " + req.params.id + " was deleted");
+    res.redirect('/home');
+}
 
 module.exports = {
     login,
     createUserGet,
     createUserPost,
     dashboard,
-    myMsgs
+    myMsgs,
+    deleteMsg
 }
